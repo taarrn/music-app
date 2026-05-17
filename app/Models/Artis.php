@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Artis extends Model {
     protected $table = 'artis';
     protected $fillable = ['nama', 'genre', 'negara'];
+    public $timestamps = false;
 
     public function album() {
         return $this->hasMany(Album::class, 'artis_id');

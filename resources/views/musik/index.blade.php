@@ -28,6 +28,16 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .btn-kelola {
+            background: linear-gradient(90deg, #c9a96e, #a0785a);
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+        .btn-kelola:hover { opacity: 0.9; color: #fff; }
         .hero {
             text-align: center;
             padding: 60px 20px 40px;
@@ -39,13 +49,8 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .hero p {
-            color: #999;
-            margin-top: 10px;
-        }
-        .section {
-            margin-bottom: 60px;
-        }
+        .hero p { color: #999; margin-top: 10px; }
+        .section { margin-bottom: 60px; }
         .section-title {
             font-size: 1.4rem;
             font-weight: 700;
@@ -61,7 +66,6 @@
             --bs-table-bg: transparent;
             --bs-table-border-color: rgba(0,0,0,0.07);
             --bs-table-hover-bg: rgba(201,169,110,0.1);
-            --bs-table-hover-color: #2d2d2d;
         }
         .table thead tr {
             background: linear-gradient(90deg, #c9a96e, #a0785a);
@@ -121,6 +125,7 @@
 <nav class="navbar-custom d-flex align-items-center gap-2">
     <span style="font-size:1.5rem;">🎵</span>
     <span class="navbar-brand-text">MusicApp</span>
+    <a href="/artis" class="btn-kelola ms-auto">Kelola Artis</a>
 </nav>
 
 <div class="hero">
