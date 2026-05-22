@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 class ArtisController extends Controller {
 
     public function index() {
+        // Menggunakan Eloquent all()
         $artis = Artis::all();
-       return view('musik.artis', compact('artis'));
+        return view('musik.artis', compact('artis'));
     }
 
     public function create() {
@@ -20,12 +21,20 @@ class ArtisController extends Controller {
             'genre' => 'required',
             'negara' => 'required',
         ]);
+        // Menggunakan Eloquent create()
         Artis::create($request->all());
         return redirect('/artis')->with('success', 'Artis berhasil ditambahkan!');
     }
 
+    public function show($id) {
+        // Menggunakan Eloquent find()
+        $artis = Artis::find($id);
+        return view('musik.show', compact('artis'));
+    }
+
     public function edit($id) {
-        $artis = Artis::findOrFail($id);
+        // Menggunakan Eloquent find()
+        $artis = Artis::find($id);
         return view('musik.edit', compact('artis'));
     }
 
@@ -35,12 +44,25 @@ class ArtisController extends Controller {
             'genre' => 'required',
             'negara' => 'required',
         ]);
-        Artis::findOrFail($id)->update($request->all());
+        // Menggunakan Eloquent find() + update()
+        $artis = Artis::find($id);
+        $artis->update($request->all());
         return redirect('/artis')->with('success', 'Artis berhasil diupdate!');
     }
 
     public function destroy($id) {
-        Artis::findOrFail($id)->delete();
+        // Menggunakan Eloquent find() + delete()
+        $artis = Artis::find($id);
+        $artis->delete();
         return redirect('/artis')->with('success', 'Artis berhasil dihapus!');
+    }
+
+    public function search(Request $request) {
+        $keyword = $request->keyword;
+        // Menggunakan Eloquent where()
+        $artis = Artis::where('nama', 'like', '%'.$keyword.'%')
+                      ->orWhere('genre', 'like', '%'.$keyword.'%')
+                      ->get();
+        return view('musik.artis', compact('artis'));
     }
 }

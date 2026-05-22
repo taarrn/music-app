@@ -9,4 +9,5 @@ Route::get('/', function () {
 });
 
 Route::get('/musik', [MusikController::class, 'index']);
+Route::get('/artis/search', [ArtisController::class, 'search']);
 Route::resource('/artis', ArtisController::class);

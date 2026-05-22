@@ -14,6 +14,8 @@
         .table tbody tr { background-color: rgba(255,255,255,0.5); }
         .table tbody tr:hover { background-color: rgba(201,169,110,0.1); }
         .badge-genre { background: linear-gradient(90deg, #c9a96e, #a0785a); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; }
+        .input-group .form-control { border-radius: 20px 0 0 20px; border-color: #c9a96e; }
+        .input-group .btn-custom { border-radius: 0 20px 20px 0; }
     </style>
 </head>
 <body>
@@ -23,6 +25,12 @@
     <a href="/musik" class="ms-3 text-secondary" style="font-size:0.9rem;">← Kembali</a>
 </nav>
 <div class="container">
+    <form action="/artis/search" method="GET" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="keyword" class="form-control" placeholder="Cari artis atau genre..." value="{{ request('keyword') }}">
+            <button class="btn btn-custom" type="submit">Cari</button>
+        </div>
+    </form>
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h3 style="color:#a0785a; font-weight:700;">🎤 Kelola Artis</h3>
         <a href="/artis/create" class="btn-custom">+ Tambah Artis</a>
